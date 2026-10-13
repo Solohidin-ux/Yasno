@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --surface: #fffdf8;
+  --ink: #1c1915;
+  --on-ink: #f7f3ea;
+  --muted: #6f675c;
+  --line: #e4d9c8;
+  --accent: #1f6b4a;
+  --on-accent: #f4fff8;
+  --ember: #c65a2e;
+  --danger: #c2412d;
+  --auto: #1d5c96;
+  --danger-soft: #fde8e4;
+  --auto-soft: #e4f0fa;
+  --edge: #8a8175;
+  --dot: rgba(28, 25, 21, 0.09);
+  --shadow: 0 24px 60px rgba(40, 32, 20, 0.08);
+}
+
+.dark {
+  color-scheme: dark;
+  --paper: #12110e;
+  --surface: #1d1b17;
+  --ink: #f4efe6;
+  --on-ink: #16130f;
+  --muted: #b3aa9e;
+  --line: #343028;
+  --accent: #3dba8b;
+  --on-accent: #06281c;
+  --ember: #e3875b;
+  --danger: #f0715e;
+  --auto: #7eb6e8;
+  --danger-soft: #3a221c;
+  --auto-soft: #172838;
+  --edge: #9a9186;
+  --dot: rgba(255, 248, 236, 0.08);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", "Manrope", sans-serif;
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-on-ink: var(--on-ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-ember: var(--ember);
+  --color-danger: var(--danger);
+  --color-auto: var(--auto);
+  --color-danger-soft: var(--danger-soft);
+  --color-auto-soft: var(--auto-soft);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #d7efe4;
+  color: #14261c;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 1rem;
+  height: 1rem;
+}
+
+.marketing {
+  background-color: var(--paper);
+  background-image: radial-gradient(var(--dot) 0.7px, transparent 0.7px);
+  background-size: 22px 22px;
+}
+
+dialog.sheet {
+  margin: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: calc(100vw - 2rem);
+  color: inherit;
+}
+
+dialog.sheet::backdrop {
+  background: rgba(22, 18, 12, 0.46);
+}
+
+.react-flow {
+  --xy-background-color: var(--paper);
+  --xy-background-color-default: var(--paper);
+  --xy-edge-stroke: var(--edge);
+  --xy-edge-stroke-default: var(--edge);
+  --xy-edge-stroke-selected: var(--accent);
+  --xy-edge-stroke-selected-default: var(--accent);
+  --xy-connectionline-stroke: var(--accent);
+  --xy-connectionline-stroke-default: var(--accent);
+  --xy-edge-label-background-color: var(--surface);
+  --xy-edge-label-background-color-default: var(--surface);
+  --xy-edge-label-color: var(--ink);
+  --xy-edge-label-color-default: var(--ink);
+  --xy-minimap-background-color: var(--surface);
+  --xy-minimap-background-color-default: var(--surface);
+  --xy-controls-button-background-color: var(--surface);
+  --xy-controls-button-background-color-default: var(--surface);
+  --xy-controls-button-background-color-hover: var(--paper);
+  --xy-controls-button-background-color-hover-default: var(--paper);
+  --xy-controls-button-color: var(--ink);
+  --xy-controls-button-color-default: var(--ink);
+  --xy-controls-button-border-color: var(--line);
+  --xy-controls-button-border-color-default: var(--line);
+  --xy-controls-box-shadow: none;
+  --xy-controls-box-shadow-default: none;
+  background-color: var(--paper);
+}
+
+.react-flow__edge-path {
+  stroke-width: 1.6;
+}
+
+.react-flow__edge-text {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.react-flow__controls {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.react-flow__minimap {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.react-flow__handle {
+  z-index: 20;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--surface);
+  background: var(--accent);
+}
+
+.node-card {
+  box-shadow: 0 10px 24px rgba(34, 28, 20, 0.06);
+}
+
+.node-selected {
+  box-shadow:
+    0 0 0 2px var(--paper),
+    0 0 0 4px var(--accent);
+}
+
+.exporting .react-flow__handle {
+  opacity: 0;
+}
+
+.exporting .node-selected {
+  box-shadow: 0 10px 24px rgba(34, 28, 20, 0.06);
+}
